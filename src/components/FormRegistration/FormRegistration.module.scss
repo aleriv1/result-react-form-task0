@@ -1,0 +1,14 @@
+h1 {
+  color: green;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.FormRegistration {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
