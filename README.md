@@ -1,16 +1,15 @@
-# React + Vite
+1. Реализовать приложение на базе Vite — страницу регистрации нового пользователя:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+должно быть 3 поля: Email, пароль, повтор пароля;
+должна быть кнопка «Зарегистрироваться»;
+продумать и реализовать валидацию полей;
+выводить информацию об ошибках валидации;
+блокировать кнопку «Зарегистрироваться», если форма не валидна (есть хоть одно поле с невалидными данными);
+после успешного заполнения всех полей формы фокус должен автоматически перемещаться на кнопку «Зарегистрироваться»;
+после нажатия на кнопку «Зарегистрироваться» выводить данные формы в консоль;
+дизайн на усмотрение разработчика. 2. Сделать аналогичное приложение, используя React Hook Form и Yup.
 
-Currently, two official plugins are available:
+Примечание: выполните задание и прикрепите ссылку на ответ в форме отправки ответа ниже. После того как наставник примет ваш ответ, здесь будет открыто решение.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Дедлайн для получения бонусных монет по заданию — до 03.03 включительно.
+Дедлайн для получения обратной связи от наставника по заданию — до 10.03 включительно.
