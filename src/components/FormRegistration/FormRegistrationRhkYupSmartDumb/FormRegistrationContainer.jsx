@@ -9,7 +9,7 @@ function FormRegistrationContainer() {
     register,
     handleSubmit,
     trigger,
-    formState: { errors, isValid },
+    formState: { errors, isValid, touchedFields },
   } = useForm({
     resolver: yupResolver(validationSchema),
     mode: "onChange",
@@ -43,6 +43,7 @@ function FormRegistrationContainer() {
     <FormRegistrationView
       register={registerWithFocus}
       errors={errors}
+      touchedFields={touchedFields}
       isValid={isValid}
       onSubmit={handleSubmit(onSubmit)}
       submitButtonRef={submitButtonRef}

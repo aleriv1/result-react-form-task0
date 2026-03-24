@@ -30,7 +30,7 @@ function FormRegistrationReactHookFormYup() {
     register,
     handleSubmit,
     trigger,
-    formState: { errors, isValid },
+    formState: { errors, isValid, touchedFields },
   } = useForm({
     resolver: yupResolver(validationSchema),
     mode: "onChange",
@@ -57,7 +57,7 @@ function FormRegistrationReactHookFormYup() {
       >
         <h1>Sign Up (RHF+Yup)</h1>
 
-        {errors.email ? (
+        {errors.email && touchedFields.email ? (
           <div className={styles.errorLabel}>{errors.email.message}</div>
         ) : (
           <div className={styles.labelTitle}>Email</div>
@@ -68,7 +68,7 @@ function FormRegistrationReactHookFormYup() {
           {...register("email", { onChange: checkFocus })}
         />
 
-        {errors.password ? (
+        {errors.password && touchedFields.password ? (
           <div className={styles.errorLabel}>{errors.password.message}</div>
         ) : (
           <div className={styles.labelTitle}>Password</div>
@@ -79,7 +79,7 @@ function FormRegistrationReactHookFormYup() {
           {...register("password", { onChange: checkFocus })}
         />
 
-        {errors.repeatPassword ? (
+        {errors.repeatPassword && touchedFields.repeatPassword ? (
           <div className={styles.errorLabel}>
             {errors.repeatPassword.message}
           </div>
