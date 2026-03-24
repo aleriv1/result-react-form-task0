@@ -24,7 +24,6 @@ function FormRegistrationContainer() {
     }
   };
 
-  // Оборачиваем register, чтобы добавить логику фокуса
   const registerWithFocus = (name) => {
     const registered = register(name);
     return {

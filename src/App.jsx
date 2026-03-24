@@ -7,8 +7,8 @@ function App() {
   return (
     <>
       {/* <FormRegistration /> */}
-      {/* <FormRegistrationReactHookFormYup /> */}
-      <FormRegistrationSmartDumb />
+      <FormRegistrationReactHookFormYup />
+      {/* <FormRegistrationSmartDumb /> */}
     </>
   );
 }
