@@ -8,8 +8,8 @@ function FormRegistration() {
   const [passwordError, setPasswordError] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [repeatPasswordError, setRepeatPasswordError] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showRepetPassword, setShowRepeatPassword] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
+  // const [showRepetPassword, setShowRepeatPassword] = useState(false);
   const submitButtonRef = useRef(null);
 
   const emailRegex =
@@ -93,7 +93,11 @@ function FormRegistration() {
       <div className={styles.formContainer}>
         <form className={styles.FormRegistration} onSubmit={onSubmit}>
           <h1>Sign up</h1>
-          {emailError && <div className={styles.errorLabel}>{emailError}</div>}
+          {emailError ? (
+            <div className={styles.errorLabel}>{emailError}</div>
+          ) : (
+            <div className={styles.labelTitle}>Email</div>
+          )}
 
           <input
             type="email"
@@ -103,8 +107,10 @@ function FormRegistration() {
             onChange={onEmailChange}
           />
 
-          {passwordError && (
+          {passwordError ? (
             <div className={styles.errorLabel}>{passwordError}</div>
+          ) : (
+            <div className={styles.labelTitle}>Password</div>
           )}
 
           <input
@@ -116,8 +122,10 @@ function FormRegistration() {
             onChange={onPasswordChange}
           />
 
-          {repeatPasswordError && (
+          {repeatPasswordError ? (
             <div className={styles.errorLabel}>{repeatPasswordError}</div>
+          ) : (
+            <div className={styles.labelTitle}>Repeat password</div>
           )}
           <input
             // type="password"
