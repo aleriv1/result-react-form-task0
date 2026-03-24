@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import styles from "./FormRegistrationReactHookFormYup.module.scss";
+import styles from "../FormRegistration.module.scss";
 
 const emailRegex =
   /^[a-zA-Z0-9]([a-zA-Z0-9._-])*[a-zA-Z0-9]@[a-zA-Z0-9]([a-zA-Z0-9-])*[a-zA-Z0-9]\.[a-zA-Z]{2,}$/;
@@ -29,6 +29,7 @@ function FormRegistrationReactHookFormYup() {
   const {
     register,
     handleSubmit,
+    trigger,
     formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(validationSchema),
@@ -37,11 +38,12 @@ function FormRegistrationReactHookFormYup() {
 
   const submitButtonRef = useRef(null);
 
-  useEffect(() => {
-    if (isValid) {
+  const checkFocus = async () => {
+    const isFormValid = await trigger();
+    if (isFormValid) {
       submitButtonRef.current?.focus();
     }
-  }, [isValid]);
+  };
 
   const onSubmit = (data) => {
     console.log(data.email, data.password);
@@ -53,17 +55,25 @@ function FormRegistrationReactHookFormYup() {
         className={styles.FormRegistration}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1>Alena (RHF + Yup)</h1>
+        <h1>Sign Up (RHF+Yup)</h1>
 
         {errors.email && (
           <div className={styles.errorLabel}>{errors.email.message}</div>
         )}
-        <input type="email" placeholder="email" {...register("email")} />
+        <input
+          type="email"
+          placeholder="email"
+          {...register("email", { onChange: checkFocus })}
+        />
 
         {errors.password && (
           <div className={styles.errorLabel}>{errors.password.message}</div>
         )}
-        <input type="text" placeholder="password" {...register("password")} />
+        <input
+          type="text"
+          placeholder="password"
+          {...register("password", { onChange: checkFocus })}
+        />
 
         {errors.repeatPassword && (
           <div className={styles.errorLabel}>
@@ -73,7 +83,7 @@ function FormRegistrationReactHookFormYup() {
         <input
           type="text"
           placeholder="repeat password"
-          {...register("repeatPassword")}
+          {...register("repeatPassword", { onChange: checkFocus })}
         />
 
         <button ref={submitButtonRef} type="submit" disabled={!isValid}>

@@ -1,11 +1,11 @@
 import "./App.css";
 import FormRegistration from "./components/FormRegistration/FormRegistration";
-import FormRegistrationReactHookFormYup from "./components/FormRegistrationReactHookFormYup/FormRegistrationReactHookFormYup";
+import FormRegistrationReactHookFormYup from "./components/FormRegistration/FormRegistrationReactHookFormYup/FormRegistrationReactHookFormYup";
 
 function App() {
   return (
     <>
-      {/* <FormRegistration /> */}
+      <FormRegistration />
       <FormRegistrationReactHookFormYup />
     </>
   );

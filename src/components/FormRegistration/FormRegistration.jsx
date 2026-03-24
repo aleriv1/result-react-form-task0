@@ -92,7 +92,7 @@ function FormRegistration() {
     <>
       <div className={styles.formContainer}>
         <form className={styles.FormRegistration} onSubmit={onSubmit}>
-          <h1>Alena</h1>
+          <h1>Sign up</h1>
           {emailError && <div className={styles.errorLabel}>{emailError}</div>}
 
           <input
